@@ -8,7 +8,7 @@ In diesem Repo tracke ich meine Fortschritte in einem Django DRF Kurs.
 - Django >= 4.2
 
 ## Setup
-```
+```bash
 cd udm-drf
 
 # Virtuelle Umgebung erstellen damit das System-Python

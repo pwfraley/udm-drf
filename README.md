@@ -11,7 +11,7 @@ In diesem Repo tracke ich meine Fortschritte in einem Django DRF Kurs.
 ```
 cd udm-drf
 
-# Virtuelle Umgebung erstellen damit das Systempython
+# Virtuelle Umgebung erstellen damit das System-Python
 # unverändert bleibt
 python -m venv .venv
 
@@ -23,9 +23,10 @@ pip install -r requirements.txt
 
 # Django für den ersten Start vorbereiten, dies beinhaltet:
 
+# * Wechseln in das Sourcecode Verzeichnis
 cd src
 
-# * Datenbank erstllen und migrieren
+# * Datenbank erstellen und migrieren
 python manage.py migrate
 
 # * Admin User anlegen

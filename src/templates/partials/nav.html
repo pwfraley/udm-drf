@@ -1,0 +1,61 @@
+{% load static %}
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light shadow border-bottom border-5 border-primary">
+    <div class="container">
+        <a href="/" class="navbar-brand"><img src="{% static 'img/logo.png' %}" class="d-inline-block" width="150px" alt="Zyako Logo"/></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav fw-semibold justify-content-center mx-md-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'start-page' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'news-page' %}">News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'search-page' %}">Wunschfahrzeug finden</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'team-page' %}">Team</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-md-auto">
+                {% if request.user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"><i class="bi bi-person-circle me-1"></i> {{ user.email }}</a>
+                    <div class="dropdown-menu" aria-labelledby="download">
+                        <div class="dropdown-header">
+                            <h6 class="mb-1 text-primary">{{ request.user.first_name }} {{ request.user.last_name }}</h6>
+                            <p class="mb-1">{{ request.user.email }}</p>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" rel="noopener" href="{% url 'dashboard_home' %}">
+                            {% if request.user.is_staff %}
+                            <i class="bi bi-speedometer2"></i> Dashboard
+                            {% else %}
+                            <i class="bi bi-bag me-1"></i> Meine Bestellungen
+                            {% endif %}
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" rel="noopener" href="{% url 'profile' %}"><i class="bi bi-person me-1"></i> Profil</a>
+                        <a class="dropdown-item" rel="noopener" href="/account/two_factor"><i class="bi bi-lock me-1"></i> Sicherheit</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" rel="noopener" href="{% url 'logout' %}"><i class="bi bi-box-arrow-left"></i> Logout</a>
+                    </div>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a rel="noopener" class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link mx-0">|</a>
+                </li>
+                <li class="nav-item">
+                    <a rel="noopener" class="nav-link" href="/core/register">Registrieren</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>

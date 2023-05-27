@@ -5,6 +5,7 @@ In diesem Repo tracke ich meine Fortschritte in einem Django DRF Kurs.
 ## Technische Anforderungen
 
 - python >= 3.11
+- postgresql
 - Django >= 4.2
 
 ## Setup

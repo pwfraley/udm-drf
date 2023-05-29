@@ -6,6 +6,7 @@
  */
 
 module.exports = {
+    darkMode: 'class',
     content: [
         /**
          * HTML. Paths to Django template files that will contain Tailwind CSS classes.
@@ -44,7 +45,58 @@ module.exports = {
         // '../../**/*.py'
     ],
     theme: {
-        extend: {},
+        extend: {
+            colors: {
+                "primary": {
+                    "50": "rgb(241, 248, 252)",
+                    "100": "rgb(227, 241, 249)",
+                    "200": "rgb(201, 227, 243)",
+                    "300": "rgb(163, 208, 235)",
+                    "400": "rgb(102, 176, 222)",
+                    "500": "rgb(44, 143, 205)",
+                    "600": "rgb(35, 114, 163)",
+                    "700": "rgb(30, 100, 143)",
+                    "800": "rgb(24, 79, 113)",
+                    "900": "rgb(20, 65, 93)"
+                  },
+            }
+          },
+          fontFamily: {
+            'body': [
+                'Inter',
+                'ui-sans-serif',
+                'system-ui',
+                '-apple-system',
+                'system-ui',
+                'Segoe UI',
+                'Roboto',
+                'Helvetica Neue',
+                'Arial',
+                'Noto Sans',
+                'sans-serif',
+                'Apple Color Emoji',
+                'Segoe UI Emoji',
+                'Segoe UI Symbol',
+                'Noto Color Emoji'
+            ],
+            'sans': [
+                'Inter',
+                'ui-sans-serif',
+                'system-ui',
+                '-apple-system',
+                'system-ui',
+                'Segoe UI',
+                'Roboto',
+                'Helvetica Neue',
+                'Arial',
+                'Noto Sans',
+                'sans-serif',
+                'Apple Color Emoji',
+                'Segoe UI Emoji',
+                'Segoe UI Symbol',
+                'Noto Color Emoji'
+            ]
+        }
     },
     plugins: [
         /**

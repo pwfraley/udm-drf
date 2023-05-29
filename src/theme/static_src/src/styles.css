@@ -1,3 +1,71 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    scroll-behavior: smooth;
+    @apply
+        bg-gray-200
+        dark:dark:bg-gray-800
+        text-gray-900
+        dark:text-white;
+}
+
+header nav {
+    @apply
+        bg-gradient-to-b from-primary-700 to-primary-600
+        border-gray-200
+        px-4
+        lg:px-6
+        py-2.5
+}
+
+header nav .nav-link {
+    @apply
+        block
+        py-2
+        pr-4
+        pl-3
+        text-gray-300
+        border-b
+        border-primary-700
+        hover:bg-gray-300
+        hover:text-gray-800
+        font-semibold
+        lg:hover:bg-transparent
+        lg:border-0
+        lg:hover:text-white
+        lg:p-0 dark:text-gray-300
+        lg:dark:hover:text-white
+        dark:hover:bg-gray-700
+        dark:hover:text-white
+        lg:dark:hover:bg-transparent
+        dark:border-primary-700;
+}
+
+.header-layout {
+    @apply
+        flex
+        flex-wrap
+        justify-between
+        items-center
+        mx-auto
+        max-w-screen-xl;
+}
+
+.header-nav-logo-text {
+    @apply self-center text-xl text-white font-semibold whitespace-nowrap dark:text-white;
+}
+
+.header-nav-logo {
+    @apply flex items-center;
+}
+
+.search-box {
+    @apply mt-0 sm:mt-10;
+}
+
+.search-box .search-box-content {
+    @apply container mx-auto shadow-md sm:rounded-lg;
+}
+

@@ -81,3 +81,22 @@ header nav .nav-link {
     @apply p-4 bg-gray-100 border border-gray-200 sm:rounded-lg shadow sm:p-6 dark:bg-gray-700 dark:border-gray-700;
 }
 
+.page-nav ul {
+    @apply inline-flex items-center -space-x-px;
+}
+
+.page-nav ul li a {
+    @apply px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
+}
+
+.page-nav ul li a.current {
+    @apply z-10 px-3 py-2 leading-tight border border-primary-300 bg-gradient-to-b from-primary-700 to-primary-600 text-primary-100 hover:text-primary-200 dark:border-gray-700 dark:text-white;
+}
+
+.page-nav ul li a.prev {
+    @apply block px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
+}
+
+.page-nav ul li a.next {
+    @apply block px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white;
+}

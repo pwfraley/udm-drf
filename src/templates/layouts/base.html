@@ -1,5 +1,6 @@
 {% load static tailwind_tags %}
 {% load static %}
+{% load django_htmx %}
 <!doctype html>
 <html lang="de">
   <head>
@@ -7,6 +8,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}{{ title }}{% endblock %}</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="{% static 'js/htmx.min.js' %}" defer></script>
+    {% django_htmx_script %}
 		{% tailwind_css %}
     {% block head %}
     {% endblock %}

@@ -1,27 +1,37 @@
-FROM python:3.11
+FROM python:3.11-alpine
+LABEL maintainer="fraley.de"
 
-RUN apt update && apt install -y libmagic1 libmagic-dev libmagic-mgc libmagic-ocaml libfile-libmagic-perl gettext
-RUN pip install --upgrade pip
+ENV PYTHONUNBUFFERED 1
 
-# Allows docker to cache installed dependencies between builds
-COPY requirements.txt requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apk update && \
+    apk upgrade && \
+    apk add gettext
 
-# Mounts the application code to the image
-COPY ./src app
-COPY ./scripts/entrypoint.sh app
+COPY requirements.txt /tmp/requirements.txt
+COPY ./src /app
+COPY ./scripts/entrypoint.sh /app/entrypoint.sh
+
 WORKDIR /app
-RUN mkdir -p media/uploads
-RUN chmod -R 777 media/uploads
-RUN chmod a+x entrypoint.sh
-# For Language Files
-# RUN python manage.py compilemessages
-
 EXPOSE 8000
+
+RUN python -m venv /venv && \
+    /venv/bin/pip install --no-cache-dir --upgrade pip && \
+    /venv/bin/pip install --no-cache-dir -r /tmp/requirements.txt && \
+    rm -f /tmp/requirements.txt && \
+    adduser \
+        --disabled-password \
+        --no-create-home \
+        django-user && \
+        chown -R django-user:django-user /app/db.sqlite3
+
+ENV PATH="/venv/bin:$PATH"
+ENV DJANGO_SETTINGS_MODULE='core.settings.settings'
+
+USER django-user
+
 VOLUME /media/uploads
 VOLUME /static
 
 # runs the production server
 ENTRYPOINT ["./entrypoint.sh"]
-ENV DJANGO_SETTINGS_MODULE='udmdrf.settings.settings'
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "udmdrf.wsgi"]
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "core.wsgi"]

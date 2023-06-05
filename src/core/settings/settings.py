@@ -60,7 +60,7 @@ MIDDLEWARE = [
     'django_htmx.middleware.HtmxMiddleware',
 ]
 
-ROOT_URLCONF = 'udmdrf.urls'
+ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
     {
@@ -78,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'udmdrf.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database

@@ -33,5 +33,5 @@ USER django-user
 # VOLUME /app/static
 
 # runs the production server
-# ENTRYPOINT ["./entrypoint.sh"]
-# CMD ["gunicorn", "-b", "0.0.0.0:8000", "core.wsgi"]
+ENTRYPOINT ["./entrypoint.sh"]
+CMD ["gunicorn", "-b", "0.0.0.0:8000", "core.wsgi"]

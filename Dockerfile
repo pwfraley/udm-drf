@@ -10,7 +10,7 @@ RUN apk update && \
 
 COPY requirements.txt /tmp/requirements.txt
 COPY ./src /app
-COPY ./scripts/entrypoint.sh /app/entrypoint.sh
+COPY ./scripts/entrypoint.sh /entrypoint.sh
 
 WORKDIR /app
 EXPOSE 8000

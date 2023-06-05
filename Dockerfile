@@ -5,7 +5,7 @@ ENV PYTHONUNBUFFERED 1
 
 RUN apk update && \
     apk upgrade && \
-    apk add gettext
+    apk add gettext nodejs npm
 
 COPY requirements.txt /tmp/requirements.txt
 COPY ./src /app
@@ -26,12 +26,13 @@ RUN python -m venv /venv && \
 
 ENV PATH="/venv/bin:$PATH"
 ENV DJANGO_SETTINGS_MODULE='core.settings.settings'
+ENV NPM_BIN_PATH=/usr/bin/npm
 
 USER django-user
 
-VOLUME /media/uploads
-VOLUME /static
+# VOLUME /app/media/uploads
+# VOLUME /app/static
 
 # runs the production server
-ENTRYPOINT ["./entrypoint.sh"]
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "core.wsgi"]
+# ENTRYPOINT ["./entrypoint.sh"]
+# CMD ["gunicorn", "-b", "0.0.0.0:8000", "core.wsgi"]

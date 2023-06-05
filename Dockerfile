@@ -21,8 +21,7 @@ RUN python -m venv /venv && \
     adduser \
         --disabled-password \
         --no-create-home \
-        django-user && \
-        chown -R django-user:django-user /app/db.sqlite3
+        django-user
 
 ENV PATH="/venv/bin:$PATH"
 ENV DJANGO_SETTINGS_MODULE='core.settings.settings'

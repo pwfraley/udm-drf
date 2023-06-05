@@ -1,7 +1,8 @@
 FROM python:3.11-alpine
 LABEL maintainer="fraley.de"
 
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
 
 RUN apk update && \
     apk upgrade && \

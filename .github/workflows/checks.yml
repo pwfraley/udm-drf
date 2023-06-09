@@ -10,16 +10,16 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    services:
-      mysql:
-        image: mysql:latest
-        ports:
-          - 3306:3306
-        env:
-          TZ: "Europe/Berlin"
-          MYSQL_DATABASE: dzar_test
-          MYSQL_ROOT_PASSWORD: changeme
-        options: --health-cmd="mysqladmin ping" --health-interval=15s --health-timeout=5s --health-retries=5
+    # services:
+      # mysql:
+      #   image: mysql:latest
+      #   ports:
+      #     - 3306:3306
+      #   env:
+      #     TZ: "Europe/Berlin"
+      #     MYSQL_DATABASE: dzar_test
+      #     MYSQL_ROOT_PASSWORD: changeme
+      #   options: --health-cmd="mysqladmin ping" --health-interval=15s --health-timeout=5s --health-retries=5
 
     steps:
       - uses: actions/checkout@v2

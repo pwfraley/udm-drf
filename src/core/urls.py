@@ -22,4 +22,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('start_page.urls')),
 ] + staticfiles_urlpatterns()
-
